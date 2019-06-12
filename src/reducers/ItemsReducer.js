@@ -9,30 +9,6 @@ let DEFAULT_STATE = {
 export default (state = DEFAULT_STATE, action) => {
     switch (action.type) {
 
-        // get all items
-        // case type.GET_ALL_ITEMS_REQUEST:
-        //     return {
-        //         ...state,
-        //         isFetching: true
-        //     }
-        // case type.GET_ALL_ITEMS_SUCSESS:
-
-        //     return {
-        //         ...state,
-        //         isFetching: false,
-        //         dataFetched: true,
-        //         error: false,
-        //         errorMessesage: null,
-        //         listItem: action.payload
-        //     }
-
-        // case type.GET_ALL_ITEMS_RFAILURE:
-        //     return {
-        //         ...state,
-        //         isFetching: false,
-        //         error: true,
-        //         errorMessesage: action.payload.errorMessesage
-        //     }
 
 
         // get page items
@@ -86,7 +62,7 @@ export default (state = DEFAULT_STATE, action) => {
             }
 
 
-                 // post item
+        // post item
         case type.POST_ITEM_REQUEST:
             return {
                 ...state,
@@ -109,7 +85,29 @@ export default (state = DEFAULT_STATE, action) => {
                 error: true,
                 errorMessesage: action.payload.errorMessesage
             }
+        // post item
+        case type.DELETE_ITEM_REQUEST:
+            return {
+                ...state,
+                isFetching: true
+            }
+        case type.DELETE_ITEM_SUCSESS:
 
+            return {
+                ...state,
+                isFetching: false,
+                dataFetched: true,
+                error: false,
+                errorMessesage: null,
+            }
+
+        case type.DELETE_ITEM_RFAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                error: true,
+                errorMessesage: action.payload.errorMessesage
+            }
         default:
             return state;
     }

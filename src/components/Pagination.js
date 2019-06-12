@@ -6,14 +6,8 @@ class Pagination extends Component {
       componentDidMount() {
             this.props.getAllItems({ textSearch: null })
       }
-
-
       render() {
-            let {totalPage,activePage}=this.props.valueToGetAPI
-            
-            
-            
-
+            let { totalPage, activePage } = this.props.valueToGetAPI
             return (
                   <div>
                         <nav aria-label="Page navigation example">

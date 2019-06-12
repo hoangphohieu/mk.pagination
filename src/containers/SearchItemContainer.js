@@ -6,7 +6,8 @@ import * as action from './../actions';
 function mapDispatchToProps(dispatch) {
       return {
             updateTextSearch: (param) =>dispatch(action.updateTextSearch(param)),
-            getFirstPage:(param)=>dispatch(action.getPageItems(param))
+            getFirstPage:(param)=>dispatch(action.getPageItems(param)),
+            changeActivePage :(param)=>dispatch(action.changeActivePage(param))
       };
 }
 

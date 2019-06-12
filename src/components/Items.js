@@ -18,7 +18,7 @@ class Items extends Component {
                                       <button
                                           className={"btn " + (
                                               (item.isDone)
-                                                  ? "btn-primary "
+                                                  ? "btn-primary disable_click "
                                                   : "btn-danger "
                                           ) + "mr-1"} onClick={()=>this.props.updateItem({...this.props.valueToGetAPI,id:item.id})} >V</button>
                                       <button

@@ -84,6 +84,8 @@ function* patchItem(param) {
 }
 
 function* postItem(param) {
+    console.log(param.payload);
+    
     try {
         const res1 = yield postItemAPI(param.payload);
         yield put({
@@ -96,9 +98,16 @@ function* postItem(param) {
         })
         yield put({
             type: type.GET_PAGE_ITEMS_REQUEST,
-            payload: param.payload
+            payload: {...param.payload,activePage:1,textSearch:null}
         })
-
+        yield put({
+            type: type.CHANGE_ACTIVE_PAGE,
+            payload: 1
+        })
+        yield put({
+            type: type.CHANGE_TEXT_SEARCH_TO_NULL
+       
+        })
 
     } catch (error) {
         yield put({
@@ -125,10 +134,27 @@ function* deleteItem(param) {
             type: type.GET_ALL_ITEMS_REQUEST,
             payload: param.payload
         })
+        const res2 = yield getAllItemsAPI(param.payload);
+        console.log(res2);
+        if(Math.ceil(res2.length/5)<param.payload.activePage){
+            yield put({
+                type: type.GET_PAGE_ITEMS_REQUEST,
+                payload: {...param.payload,activePage:Math.ceil(res2.length/5)}
+            })
+            yield put({
+                type: type.CHANGE_ACTIVE_PAGE,
+                payload: Math.ceil(res2.length/5)
+            })
+
+        }
+        else{
+             
         yield put({
             type: type.GET_PAGE_ITEMS_REQUEST,
             payload: param.payload
         })
+        }
+       
 
     } catch (error) {
         yield put({

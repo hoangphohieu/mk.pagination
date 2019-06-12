@@ -26,9 +26,6 @@ export function getActivePage(payload) {
 export function changeActivePage(payload) {
     return ({type: type.CHANGE_ACTIVE_PAGE,payload})
 }
-export function getActivePageToDefault() {   
-    return ({type: type.GET_ACTIVE_PAGE_TO_DEFAULT})
-}
 
 export function updateTextSearch(payload) {   
     return ({type: type.UPDATE_TEXT_SEARCH,payload})

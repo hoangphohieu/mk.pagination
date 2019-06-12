@@ -1,7 +1,7 @@
 import * as type from './../constants';
 const INIT_STATE = {
       textSearch: null,
-      totalPage: 69,
+      totalPage: 69    ,
       activePage:1
 };
 function valueToGetAPI(state = INIT_STATE, action) {
@@ -24,7 +24,12 @@ function valueToGetAPI(state = INIT_STATE, action) {
                         ...state,
                         activePage: action.payload
                   };
-
+                  case type.CHANGE_TEXT_SEARCH_TO_NULL:
+                        return {
+                              ...state,
+                              textSearch: null
+                        };
+                  
 
             default:
                   return state;
