@@ -3,11 +3,12 @@ import React, { Component } from 'react';
 import ItemPagination from './ItemPagination';
 class Pagination extends Component {
 
-      componentDidMount() {
-            this.props.getAllItems({ textSearch: null })
-      }
+
+
       render() {
-            let { totalPage, activePage } = this.props.valueToGetAPI
+            let { totalPage, activePage } = this.props.valueToGetAPI;
+
+            // cái này giải thích mệt lắm man
             return (
                   <div>
                         <nav aria-label="Page navigation example">

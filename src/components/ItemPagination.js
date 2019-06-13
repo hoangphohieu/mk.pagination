@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 
 class ItemPagination extends Component {
-
+    // trigger khi click thẻ pagination 
       pageToActive = () => {
+            // trigger lên container để chuyển page được click thành active Page
             this.props.changeActivePage(this.props.numberPage);
+
+            // trigger lên container để getPageItem
             this.props.getPageItem({...this.props.valueToGetAPI, activePage:this.props.numberPage})
     }
     render() {

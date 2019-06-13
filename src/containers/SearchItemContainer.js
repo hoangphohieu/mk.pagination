@@ -5,9 +5,9 @@ import * as action from './../actions';
 
 function mapDispatchToProps(dispatch) {
       return {
-            updateTextSearch: (param) =>dispatch(action.updateTextSearch(param)),
-            getFirstPage:(param)=>dispatch(action.getPageItems(param)),
-            changeActivePage :(param)=>dispatch(action.changeActivePage(param))
+            updateTextSearch: (param) =>dispatch(action.updateTextSearch(param)), // trigger lên valueToGetAPIReducer
+            getFirstPage:(param)=>dispatch(action.getPageItemsAPI(param)), // trigger lên itemSaga và itemsReducer
+            changeActivePage :(param)=>dispatch(action.changeActivePage(param)) // triggger lên valueToGetAPIReducer
       };
 }
 

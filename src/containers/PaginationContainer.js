@@ -5,14 +5,13 @@ import Pagination from '../components/Pagination';
 
 function mapStateToProps(state) {
       return {
-            valueToGetAPI:state.valueToGetAPI
+            valueToGetAPI:state.valueToGetAPI  // lấy value từ store để get API
       };
 }
 function mapDispatchToProps(dispatch) {
       return {
-            getAllItems:(param)=>dispatch(action.getAllItems(param)),  // lấy total page
-            changeActivePage:(param)=>dispatch(action.changeActivePage(param)), // đưa active page lên reducer
-            getPageItem:(param)=> dispatch(action.getPageItems(param)) //  get page items khi click 
+            changeActivePage:(param)=>dispatch(action.changeActivePage(param)), //trigger lên valueToGetAPIReducer
+            getPageItem:(param)=> dispatch(action.getPageItemsAPI(param)) // trigger lên itemsReducer và itemsaga
       };
 }
 
@@ -20,7 +19,7 @@ class PaginationContainer extends Component {
       render() {
             return (
                  <React.Fragment>
-                       <Pagination {...this.props}/>
+                       <Pagination {...this.props}/> 
                  </React.Fragment>
             );
       }

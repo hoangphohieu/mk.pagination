@@ -8,9 +8,6 @@ let DEFAULT_STATE = {
 }
 export default (state = DEFAULT_STATE, action) => {
     switch (action.type) {
-
-
-
         // get page items
         case type.GET_PAGE_ITEMS_REQUEST:
             return {
@@ -35,8 +32,7 @@ export default (state = DEFAULT_STATE, action) => {
                 error: true,
                 errorMessesage: action.payload.errorMessesage
             }
-
-
+            
         // updateitems
         case type.PATCH_ITEM_REQUEST:
             return {

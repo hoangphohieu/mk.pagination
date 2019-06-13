@@ -1,36 +1,36 @@
 import React, { Component } from 'react';
 
 class Items extends Component {
-      componentDidMount() {
+      componentDidMount() {         // render luôn trang đầu tiên khi vào web
             this.props.getFirstPage(this.props.valueToGetAPI)
       }
+
       render() {
-           let items=this.props.items;
-           console.log(this.props);
-           
+            let items = this.props.items;
             if (items) {
                   items = items.map((item, key) => {
-                          return (
+                        return (
                               <tr key={key}>
-                                  <th scope="row">{item.id}</th>
-                                  <td>{item.name}</td>
-                                  <td>
-                                      <button
-                                          className={"btn " + (
-                                              (item.isDone)
-                                                  ? "btn-primary disable_click "
-                                                  : "btn-danger "
-                                          ) + "mr-1"} onClick={()=>this.props.updateItem({...this.props.valueToGetAPI,id:item.id})} >V</button>
-                                      <button
-                                          type="button"
-                                          className="btn btn-danger ml-1" onClick={()=>this.props.deleteitem({...this.props.valueToGetAPI,id:item.id})}
+                                    <th scope="row">{item.id}</th>
+                                    <td>{item.name}</td>
+                                    <td>
+                                          <button
+                                                className={"btn " + (   // khi isDone= true thì trả về class mới hiển thị màu xanh
+                                                      (item.isDone)
+                                                            ? "btn-primary disable_click "
+                                                            : "btn-danger "
+                                                ) + "mr-1"} onClick={() => this.props.updateItem({ ...this.props.valueToGetAPI, id: item.id })} 
+                                                >V</button>
+                                          <button
+                                                type="button"
+                                                className="btn btn-danger ml-1" onClick={() => this.props.deleteItem({ ...this.props.valueToGetAPI, id: item.id })}
                                           >X</button>
-                                  </td>
+                                    </td>
                               </tr>
-                          )
-                      }) 
-              }
-           
+                        )
+                  })
+            }
+
             return (
                   <React.Fragment>
                         <div className="row">
@@ -46,7 +46,7 @@ class Items extends Component {
                                           </thead>
                                           <tbody>
                                                 {items}
-                                                
+
                                           </tbody>
                                     </table>
                               </div>
